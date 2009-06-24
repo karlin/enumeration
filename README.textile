@@ -24,14 +24,14 @@ irb> Melons::Order
 You can also use an array of strings to construct an Enumeration:
 
 <pre><code>
-  irb> Colors = Enumeration.of %w{fuschia red bondi cerulean carnelian}
-  
-  irb> Colors::BONDI
-  => :bondi
+irb> Colors = Enumeration.of %w{fuschia red bondi cerulean carnelian}
+
+irb> Colors::BONDI
+=> :bondi
 </code></pre>
 
-  
+
 h3. Author: 
 * "Karlin Fox":http://www.atomicobject.com/pages/Karlin+Fox
-* "Atomic Object":http://atomicobject.com
+* Atomic Object 
 * "http://atomicobject.com":http://atomicobject.com
