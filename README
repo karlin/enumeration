@@ -1,0 +1,21 @@
+
+
+  Enumeration
+
+Between string and symbol array literals, hash literals, and constants in
+modules or classes, Ruby users have plenty of options for enumeration
+constructs. If you need more, try Enumeration.
+
+irb> Melons = Enumeration.of :watermelon, :honeydew, :cantelope
+irb> Melons::Order
+=> {:cantelope=>2, :watermelon=>0, :honeydew=>1}
+irb> Melons.enum
+=> [:watermelon, :honeydew, :cantelope]
+irb> Melons::HONEYDEW
+=> :honeydew
+
+You can also use an array of strings to construct an Enumeration:
+
+irb> Colors = Enumeration.of %w{fuschia red bondi cerulean carnelian}
+irb> Colors::BONDI
+=> :bondi

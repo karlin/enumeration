@@ -4,11 +4,16 @@ module Enumeration
       values = values[0]
     end
     order = (0...values.size).to_a
-    values = values.map {|v| v.to_s }
+    values = values.map {|v| v.to_sym }
     klass = Module.new
     values.each do |value|
-      const_name = value.upcase
+      const_name = value.to_s.upcase
       klass.const_set const_name, value.freeze
+      klass.instance_eval do
+        define_method value do
+          value
+        end
+      end
     end
     klass.extend Enumeration
     
@@ -24,5 +29,8 @@ module Enumeration
   def enum
     self.const_get(:Order).keys.sort_by {|x| self.const_get(:Order)[x]}
   end
-  
+
+  def to_s
+    self.enum.map {|x| x.to_s}
+  end
 end
