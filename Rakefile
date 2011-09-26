@@ -1,17 +1,13 @@
-require 'rake'
-require 'rake/rdoctask'
-require 'spec/rake/spectask'
+gem 'rdoc'
+require 'rdoc/task'
+require 'rspec/core/rake_task'
 require 'rake/clean'
 
-Rake::RDocTask.new do |task|
+RDoc::Task.new do |task|
   task.rdoc_files.add [ 'lib/**/*.rb' ]
 end
 
 task :default => [ :clean, :spec ]
 
-Spec::Rake::SpecTask.new do |task|
-  task.ruby_opts << '-rrubygems'
-  task.libs << 'lib'
-  task.spec_files = FileList[ "spec/**/*_spec.rb" ]
-end
+RSpec::Core::RakeTask.new :spec
 
